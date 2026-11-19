@@ -2,12 +2,18 @@
 layout: default
 ---
 
+{% if page.permalink == 'team/yijiong-lin' %}
+<meta http-equiv="refresh" content="0; url=https://yijionglin.github.io/">
+<script>window.location.replace('https://yijionglin.github.io/');</script>
+<p>Redirecting to <a href="https://yijionglin.github.io/">Yijiong Lin's personal website</a>...</p>
+{% endif %}
+
 <div class="col-sm-12">
     <div class=row>
         <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{{ site.baseurl }}/team">Team</a></li>
-            <li class="breadcrumb-item text-capitalize"><a href="{{ site.baseurl }}/team#{{ page.category }}">{{ page.category }}</a></li>
+            <li class="breadcrumb-item"><a href="{{ site.baseurl }}/people">People</a></li>
+            <li class="breadcrumb-item text-capitalize"><a href="{{ site.baseurl }}/team#{{ page.category }}">{{ page.category | replace: '-', ' ' }}</a></li>
             <li class="breadcrumb-item active" aria-current="page">{{ page.title }}</li>
         </ol>
         </nav>
@@ -16,7 +22,7 @@ layout: default
         <!-- Avatar -->
         <img src="{{ site.url }}{{ site.baseurl }}/images/team/{{ page.image }}"
              class="img-circle"
-             style="filter: grayscale(100%); max-width: 200px;"/>
+             style="max-width: 200px;"/>
 
         <!-- Name & Role -->
         <h1>{{ page.title }}</h1>

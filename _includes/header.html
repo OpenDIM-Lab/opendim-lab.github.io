@@ -8,12 +8,16 @@
 		<span class="icon-bar"></span>
 	  </button>
 
-    <a class="navbar-brand" href="{{ site.url }}{{ site.baseurl }}/">{{ site.title }}</a>
+    <a class="navbar-brand" href="{{ site.url }}{{ site.baseurl }}/">
+      {{ site.title }}
+      <img src="{{ '/images/logo/lab-logo_1.png' | relative_url }}"
+           alt="OpenDIM Lab logo" class="navbar-brand-logo">
+    </a>
 	</div>
 	<div class="collapse navbar-collapse" id="navbar-collapse-1">
 	  <ul class="nav navbar-nav navbar-right">
 		<li><a href="{{ site.url }}{{ site.baseurl }}/">Home</a></li>
-		<li><a href="{{ site.url }}{{ site.baseurl }}/team">Team</a></li>
+		<li><a href="{{ site.url }}{{ site.baseurl }}/people">People</a></li>
 		<li><a href="{{ site.url }}{{ site.baseurl }}/news">News</a></li>
 		<li><a href="{{ site.url }}{{ site.baseurl }}/research">Research</a></li>
 		<li><a href="{{ site.url }}{{ site.baseurl }}/publications">Publications</a></li>

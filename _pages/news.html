@@ -5,16 +5,64 @@ excerpt: "RT2 Lab at Institut Curie"
 sitemap: false
 permalink: /news.html
 ---
-<h1>{{page.title}}</h1>
+<style>
+    .news-page-title {
+        margin-bottom: 24px;
+        text-decoration: underline;
+        text-underline-offset: 5px;
+    }
 
-<ul class="list-unstyled">
+    .news-list {
+        margin: 0;
+        padding-bottom: 24px;
+    }
+
+    .news-item {
+        display: grid;
+        grid-template-columns: 170px minmax(0, 1fr);
+        column-gap: 30px;
+        align-items: baseline;
+        margin: 0;
+        padding: 10px 12px;
+        font-size: 18px;
+        line-height: 1.4;
+    }
+
+    .news-item:nth-child(even) {
+        background: #f2f2f2;
+    }
+
+    .news-date {
+        color: #111;
+        font-weight: 600;
+        white-space: nowrap;
+    }
+
+    .news-content {
+        min-width: 0;
+        color: #000;
+        font-family: Arial, "Microsoft YaHei", sans-serif;
+        font-weight: 400;
+    }
+
+    @media (max-width: 600px) {
+        .news-item {
+            grid-template-columns: 1fr;
+            row-gap: 2px;
+            margin-bottom: 16px;
+        }
+    }
+</style>
+
+<h1 class="news-page-title">{{page.title}}</h1>
+
+<div class="news-list">
     {% for article in site.data.news %}
-        <li class="media">
-            <div class="media-body">
-            <h4 class="mt-0 mb-1">{{ article.title }}</h4>
-            <p><small>{{ article.date }}</small></p>
-            {{ article.content }}
+        <article class="news-item">
+            <time class="news-date">{{ article.date }}</time>
+            <div class="news-content">
+                {{ article.title }}
             </div>
-        </li>
+        </article>
     {% endfor %}
-</ul>
+</div>

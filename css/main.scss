@@ -8,6 +8,14 @@ body {
   text-align: justify;
 }
 
+#footer .panel-footer {
+  background-color: rgb(0 0 0 / 8.5%);
+}
+
+h1 {
+  text-align: center;
+}
+
 figcaption {
   text-align: right;
   margin-top: -20px;
@@ -40,7 +48,7 @@ figcaption {
 .container-fluid {
   margin-right: auto;
   margin-left: auto;
-  max-width: 900px; /* or 950px */
+  max-width: 1000px; /* or 950px */
 }
 
 /* Carousel */

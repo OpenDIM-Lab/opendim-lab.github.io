@@ -1,21 +1,41 @@
-- date: 05/09/19
-  title: "Another great thing"
+- date: "Nov, 2026"
+  title: "Yijiong Lin received support from the Beijing Natural Science Foundation for a project on learning fine-grained manipulation skills for high-DOF dexterous hands driven by hybrid data and multimodal perception."
   tags:
-    - some
-    - tags
-  content: Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    Eu turpis egestas pretium aenean. Luctus venenatis lectus magna fringilla
-    urna porttitor. Lorem ipsum dolor sit amet. Pellentesque massa placerat
-    duis ultricies. Commodo viverra maecenas accumsan lacus vel.
+    - research
+    - funding
 
-- date: 03/09/19
-  title: "Something great"
+- date: "Nov, 2026"
+  title: "Yijiong Lin was appointed an Area Chair for RSS 2027."
   tags:
-    - some
-    - tags
-  content: Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    Eu turpis egestas pretium aenean. Luctus venenatis lectus magna fringilla
-    urna porttitor. Lorem ipsum dolor sit amet. Pellentesque massa placerat
-    duis ultricies. Commodo viverra maecenas accumsan lacus vel.
+    - service
+    - RSS
+
+- date: "Sep, 2026"
+  title: "Chenbo Jing joined OpenDIM Lab. Welcome on board! 🎉"
+  tags:
+    - people
+    - lab
+
+- date: "Aug, 2026"
+  title: "Rongxi Zhang and Tingyu Tian joined OpenDIM Lab. Welcome on board! 🎉"
+  tags:
+    - people
+    - lab
+
+- date: "Jul, 2026"
+  title: "Yijiong Lin joined Beijing Institute of Technology as an Assistant Professor and established OpenDIM Lab."
+  tags:
+    - lab
+    - appointment
+
+- date: "May, 2026"
+  title: "Yijiong Lin was appointed an Area Chair for CoRL 2026."
+  tags:
+    - award
+    - recognition
+    
+- date: "Jan, 2026"
+  title: "Yijiong Lin was selected for a national-level young talent program (国家级青年人才)."
+  tags:
+    - award
+    - recognition

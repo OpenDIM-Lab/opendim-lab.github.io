@@ -1,52 +1,290 @@
 ---
 title: "Publications"
 layout: default
-excerpt: "RT2 Lab -- Publications."
+excerpt: "OpenDIM Lab publications"
 sitemap: false
 permalink: /publications/
 ---
 
-<h1>{{page.title}}</h1>
+<style>
+    .publications-page-title {
+        margin-bottom: 24px;
+        text-align: center;
+    }
 
-<div class="panel-group" id="accordion">
-    <div class="panel panel-default">
+    .publications-intro {
+        margin-bottom: 28px;
+        font-weight: 600;
+    }
 
-    {% for publi in site.data.publications %}
-        <div class="panel-heading">
-            <a data-toggle="collapse" data-parent="#accordion"
-               href="#collapse{{forloop.index}}"
-               style="color: inherit;">
-            <!-- authors -->
-            {% assign authors = "" | split:"/" %}
-            {% for author in publi.author %}
-                {% assign authors = authors | push: author.family %}
-            {% endfor %}
-            {{ authors | array_to_sentence_string }},
+    .publications-note {
+        text-decoration: underline;
+        text-underline-offset: 3px;
+    }
 
-            <!-- title with link -->
-            "{{ publi.title }}",
+    .publication-year {
+        margin-top: 30px;
+        margin-bottom: 12px;
+        padding-bottom: 4px;
+        border-bottom: 2px solid #222;
+    }
 
-            <!-- container -->
-            <b>{{ publi.container-title }}</b>
+    .publication {
+        display: grid;
+        grid-template-columns: 180px minmax(0, 1fr);
+        gap: 20px;
+        align-items: start;
+        margin-bottom: 24px;
+    }
 
-            <!-- issued date -->
-            ({{ publi.issued.date-parts | jsonify | slice: 3,4 }}),
+    .publication-media {
+        width: 180px;
+        height: 110px;
+        object-fit: contain;
+        background: #f5f5f5;
+    }
 
-            <!-- DOI -->
-            {% if publi.DOI %}
-                <a href="https://doi.org/{{publi.DOI}}">DOI:{{publi.DOI}}</a>
-            {% endif %}
-            </a>
-        </div>
+    .publication-title {
+        margin: 0 0 8px;
+        font-size: 18px;
+        font-weight: 700;
+    }
 
-        <div id="collapse{{forloop.index}}" class="panel-collapse collapse">
-            <div class="panel-body">
-                <p>{{ publi.abstract }}</p>
+    .publication-authors,
+    .publication-venue {
+        margin: 0 0 5px;
+        line-height: 1.45;
+    }
 
-                <a class="btn btn-outline-primary" href="https://doi.org/{{publi.DOI}}"
-                   role="button" target="blank">Link</a>
-            </div>
-        </div>
-    {% endfor %}
+    .publication-venue {
+        font-style: italic;
+    }
+
+    .publication-links {
+        margin: 8px 0 0;
+    }
+
+    .publication-links a {
+        display: inline-block;
+        margin: 0 10px 6px 0;
+        padding: 5px 11px;
+        border: 1px solid #b8b8b8;
+        border-radius: 4px;
+        background: #fff;
+        color: #333;
+        font-size: 13px;
+        line-height: 1.3;
+        text-decoration: none;
+    }
+
+    .publication-links a:hover,
+    .publication-links a:focus {
+        border-color: #222;
+        background: #f2f2f2;
+        color: #111;
+        text-decoration: none;
+    }
+
+    @media (max-width: 600px) {
+        .publication {
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+
+        .publication-media {
+            width: 100%;
+            height: auto;
+            max-height: 180px;
+        }
+    }
+</style>
+
+<h1 class="publications-page-title">{{ page.title }}</h1>
+
+<p class="publications-intro">
+    For more up-to-date information, please refer to
+    <a href="https://scholar.google.com/citations?user=SQl1XCUAAAAJ&hl=en&oi=ao"
+       target="_blank" rel="noopener noreferrer">Google Scholar</a>.
+</p>
+
+<h2>Papers</h2>
+<p class="publications-note">
+    The following work was primarily completed at the University of Bristol.
+</p>
+
+<h2 class="publication-year">2026</h2>
+<article class="publication">
+    <img class="publication-media" src="{{ '/assets/img/publication_review/my_gifs/tactilelab.gif' | relative_url }}" alt="TactileLab">
+    <div>
+        <p class="publication-title">TactileLab: Efficient Multimodal Tactile Simulation for Shear-Sensitive Dexterous Sim2Real Robotic Manipulation</p>
+        <p class="publication-authors">Yijiong Lin, Wenhao He, and Nathan F. Lepora</p>
+        <p class="publication-venue">arXiv, 2026 · Coming soon</p>
+        <p class="publication-links"><a href="https://yijionglin.github.io/tactilelab/" target="_blank" rel="noopener noreferrer">Project webpage</a></p>
     </div>
-</div>
+</article>
+<article class="publication">
+    <img class="publication-media" src="{{ '/assets/img/publication_review/my_gifs/neuraltouch.gif' | relative_url }}" alt="NeuralTouch">
+    <div>
+        <p class="publication-title">NeuralTouch: Neural Descriptors for Precise Sim-to-Real Tactile Robot Control</p>
+        <p class="publication-authors">Yijiong Lin, Bowen Deng, Chenghua Lu, Max Yang, Efi Psomopoulou, and Nathan F. Lepora</p>
+        <p class="publication-venue">IEEE/ASME Transactions on Mechatronics (TMECH), 2026</p>
+        <p class="publication-links"><a href="https://yijionglin.github.io/neuraltouch/" target="_blank" rel="noopener noreferrer">Project webpage</a><a href="https://ieeexplore.ieee.org/document/11526813" target="_blank" rel="noopener noreferrer">Paper</a></p>
+    </div>
+</article>
+
+<h2 class="publication-year">2025</h2>
+<article class="publication">
+    <img class="publication-media" src="{{ '/assets/img/publication_review/my_gifs/vitacgen.gif' | relative_url }}" alt="ViTacGen">
+    <div>
+        <p class="publication-title">ViTacGen: Robotic Pushing with Vision-to-Touch Generation</p>
+        <p class="publication-authors">Zhiyuan Wu, Yijiong Lin, Yongqiang Zhao, Xuyang Zhang, Zhuo Chen, Nathan F. Lepora, and Shan Luo</p>
+        <p class="publication-venue">IEEE Robotics and Automation Letters (RA-L), 2025</p>
+        <p class="publication-links"><a href="https://robot-perception-lab.github.io/vitacgen-website/" target="_blank" rel="noopener noreferrer">Project webpage</a></p>
+    </div>
+</article>
+<article class="publication">
+    <img class="publication-media" src="{{ '/assets/img/publication_review/my_gifs/Tactile_SoftHand_A.gif' | relative_url }}" alt="Tactile SoftHand-A">
+    <div>
+        <p class="publication-title">Tactile SoftHand-A: 3D-Printed, Tactile, Highly-Underactuated, Anthropomorphic Robot Hand with an Antagonistic Tendon Mechanism</p>
+        <p class="publication-authors">Haoran Li, Christopher J. Ford, Chenghua Lu, Yijiong Lin, Matteo Bianchi, Manuel G. Catalano, Efi Psomopoulou, and Nathan F. Lepora</p>
+        <p class="publication-venue">The International Journal of Robotics Research (IJRR), 2025</p>
+        <p class="publication-links"><a href="https://journals.sagepub.com/doi/10.1177/02783649251379516" target="_blank" rel="noopener noreferrer">Paper</a></p>
+    </div>
+</article>
+<article class="publication">
+    <img class="publication-media" src="{{ '/assets/img/publication_review/my_gifs/ClassificationofVision-BasedTactileSensors_AReview.png' | relative_url }}" alt="Classification of Vision-Based Tactile Sensors">
+    <div>
+        <p class="publication-title">Classification of Vision-Based Tactile Sensors: A Review</p>
+        <p class="publication-authors">Haoran Li, Yijiong Lin, Chenghua Lu, Max Yang, Efi Psomopoulou, and Nathan F. Lepora</p>
+        <p class="publication-venue">IEEE Sensors Journal, 2025</p>
+        <p class="publication-links"><a href="https://doi.org/10.1109/JSEN.2025.3599236" target="_blank" rel="noopener noreferrer">Paper</a></p>
+    </div>
+</article>
+<article class="publication">
+    <img class="publication-media" src="{{ '/assets/img/publication_review/my_gifs/simshear.gif' | relative_url }}" alt="SimShear">
+    <div>
+        <p class="publication-title">SimShear: Sim-to-Real Shear-based Tactile Servoing</p>
+        <p class="publication-authors">Kipp Freud*, <em>Yijiong Lin*</em>, and Nathan F. Lepora</p>
+        <p class="publication-venue">9th Annual Conference on Robot Learning (CoRL), 2025</p>
+        <p class="publication-links"><a href="https://yijionglin.github.io/simshear/" target="_blank" rel="noopener noreferrer">Project webpage</a></p>
+    </div>
+</article>
+<article class="publication">
+    <img class="publication-media" src="{{ '/assets/img/publication_review/my_gifs/Text2Touch.gif' | relative_url }}" alt="Text2Touch">
+    <div>
+        <p class="publication-title">Text2Touch: Tactile In-Hand Manipulation with LLM-Designed Reward Functions</p>
+        <p class="publication-authors">Harrison Field, Max Yang, Yijiong Lin, Efi Psomopoulou, David A.W. Barton, and Nathan F. Lepora</p>
+        <p class="publication-venue">9th Annual Conference on Robot Learning (CoRL), 2025</p>
+        <p class="publication-links"><a href="https://hpfield.github.io/text2touch-website/" target="_blank" rel="noopener noreferrer">Project webpage</a></p>
+    </div>
+</article>
+<article class="publication">
+    <img class="publication-media" src="{{ '/assets/img/publication_review/my_gifs/Snap_it.webp' | relative_url }}" alt="Snap-it">
+    <div>
+        <p class="publication-title">Snap-it, tap-it, splat-it: Tactile-informed 3D Gaussian splatting for reconstructing challenging surfaces</p>
+        <p class="publication-authors">Mauro Comi, Alessio Tonioni, Max Yang, Jonathan Tremblay, Valts Blukis, Yijiong Lin, Nathan F. Lepora, and Laurence Aitchison</p>
+        <p class="publication-venue">International Conference on 3D Vision, 2025</p>
+        <p class="publication-links"><a href="https://research.nvidia.com/labs/lpr/publication/snapit2024/" target="_blank" rel="noopener noreferrer">Project webpage</a></p>
+    </div>
+</article>
+<article class="publication">
+    <img class="publication-media" src="{{ '/assets/img/publication_review/my_gifs/coarse2fine.gif' | relative_url }}" alt="Coarse-to-fine Robotic Pushing">
+    <div>
+        <p class="publication-title">Coarse-to-fine Robotic Pushing using Touch, Vision and Proprioception</p>
+        <p class="publication-authors">Bowen Deng, Yijiong Lin, Max Yang, and Nathan F. Lepora</p>
+        <p class="publication-venue">IEEE Robotics and Automation Letters (RA-L), 2025</p>
+        <p class="publication-links"><a href="https://ieeexplore.ieee.org/document/10782868" target="_blank" rel="noopener noreferrer">Paper</a></p>
+    </div>
+</article>
+
+<h2 class="publication-year">2024</h2>
+<article class="publication">
+    <img class="publication-media" src="{{ '/assets/img/publication_review/my_gifs/anyrotate.gif' | relative_url }}" alt="AnyRotate">
+    <div>
+        <p class="publication-title">Anyrotate: Gravity-invariant in-hand object rotation with sim-to-real touch</p>
+        <p class="publication-authors">Max Yang, Chenghua Lu, Alex Church, Yijiong Lin, Chris Ford, Haoran Li, Efi Psomopoulou, David A.W. Barton, and Nathan F. Lepora</p>
+        <p class="publication-venue">8th Annual Conference on Robot Learning (CoRL), 2024</p>
+        <p class="publication-links"><a href="https://maxyang27896.github.io/anyrotate/" target="_blank" rel="noopener noreferrer">Project webpage</a></p>
+    </div>
+</article>
+<article class="publication">
+    <img class="publication-media" src="{{ '/assets/img/publication_review/my_gifs/touchsdf.jpg' | relative_url }}" alt="TouchSDF">
+    <div>
+        <p class="publication-title">Touchsdf: A deepsdf approach for 3d shape reconstruction using vision-based tactile sensing</p>
+        <p class="publication-authors">Mauro Comi, Yijiong Lin, Alex Church, Alessio Tonioni, Laurence Aitchison, and Nathan F. Lepora</p>
+        <p class="publication-venue">IEEE Robotics and Automation Letters (RA-L), 2024</p>
+        <p class="publication-links"><a href="https://alessiotonioni.github.io/publication/TouchSDF" target="_blank" rel="noopener noreferrer">Project webpage</a></p>
+    </div>
+</article>
+
+<h2 class="publication-year">2023</h2>
+<article class="publication">
+    <img class="publication-media" src="{{ '/assets/img/publication_review/my_gifs/Sim-to-Real Model-Based and Model-Free.gif' | relative_url }}" alt="Sim-to-real tactile pushing">
+    <div>
+        <p class="publication-title">Sim-to-real model-based and model-free deep reinforcement learning for tactile pushing</p>
+        <p class="publication-authors">Max Yang, Yijiong Lin, Alex Church, John Lloyd, Dandan Zhang, David A.W. Barton, and Nathan F. Lepora</p>
+        <p class="publication-venue">IEEE Robotics and Automation Letters (RA-L), 2023</p>
+        <p class="publication-links"><a href="https://sites.google.com/view/tactile-rl-pushing/" target="_blank" rel="noopener noreferrer">Project webpage</a></p>
+    </div>
+</article>
+<article class="publication">
+    <img class="publication-media" src="{{ '/assets/img/publication_review/my_gifs/bitouch.gif' | relative_url }}" alt="Bi-Touch">
+    <div>
+        <p class="publication-title">Bi-Touch: Bimanual Tactile Manipulation With Sim-to-Real Deep Reinforcement Learning</p>
+        <p class="publication-authors">Yijiong Lin, Alex Church, Max Yang, Haoran Li, John Lloyd, Dandan Zhang, and Nathan F. Lepora</p>
+        <p class="publication-venue">IEEE Robotics and Automation Letters (RA-L), 2023</p>
+        <p class="publication-links"><a href="https://sites.google.com/view/bi-touch/" target="_blank" rel="noopener noreferrer">Project webpage</a></p>
+    </div>
+</article>
+<article class="publication">
+    <img class="publication-media" src="{{ '/assets/img/publication_review/my_gifs/tactile_saliency.gif' | relative_url }}" alt="Attention for Robot Touch">
+    <div>
+        <p class="publication-title">Attention for Robot Touch: Tactile Saliency Prediction for Robust Sim-to-Real Tactile Control</p>
+        <p class="publication-authors">Yijiong Lin, Mauro Comi, Alex Church, Dandan Zhang, and Nathan F. Lepora</p>
+        <p class="publication-venue">IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), 2023</p>
+        <p class="publication-links"><a href="https://sites.google.com/view/tactile-saliency/" target="_blank" rel="noopener noreferrer">Project webpage</a><a href="https://arxiv.org/abs/2307.14510" target="_blank" rel="noopener noreferrer">Paper</a></p>
+    </div>
+</article>
+
+<h2 class="publication-year">2022</h2>
+<article class="publication">
+    <img class="publication-media" src="{{ '/assets/img/publication_review/my_gifs/tactile_gym_2.gif' | relative_url }}" alt="Tactile Gym 2.0">
+    <div>
+        <p class="publication-title">Tactile Gym 2.0: Sim-to-real Deep Reinforcement Learning for Comparing Low-cost High-Resolution Robot Touch</p>
+        <p class="publication-authors">Yijiong Lin, John Lloyd, Alex Church, and Nathan F. Lepora</p>
+        <p class="publication-venue">IEEE Robotics and Automation Letters (RA-L), Aug 2022</p>
+        <p class="publication-links"><a href="https://sites.google.com/view/tactile-gym-2/home" target="_blank" rel="noopener noreferrer">Project webpage</a></p>
+    </div>
+</article>
+<article class="publication">
+    <img class="publication-media" src="{{ '/assets/img/publication_review/my_gifs/digitac.gif' | relative_url }}" alt="DigiTac">
+    <div>
+        <p class="publication-title">DigiTac: A DIGIT-TacTip Hybrid Tactile Sensor for Comparing Low-Cost High-Resolution Robot Touch</p>
+        <p class="publication-authors">Nathan F. Lepora, Yijiong Lin, Ben Money-Coomes, and John Lloyd</p>
+        <p class="publication-venue">IEEE Robotics and Automation Letters (RA-L), Aug 2022</p>
+        <p class="publication-links"><a href="https://lepora.com/digitac/" target="_blank" rel="noopener noreferrer">Project webpage</a></p>
+    </div>
+</article>
+
+
+<h2 class="publication-year">2021</h2>
+<article class="publication">
+    <img class="publication-media" src="{{ '/assets/img/publication_review/my_gifs/probabilistic descrimination.png' | relative_url }}" alt="Probabilistic Discriminative Models">
+    <div>
+        <p class="publication-title">Probabilistic Discriminative Models address the Tactile Perceptual Aliasing Problem</p>
+        <p class="publication-authors">John Lloyd, Yijiong Lin, and Nathan F. Lepora</p>
+        <p class="publication-venue">Robotics: Science and Systems (RSS), Jul 2021</p>
+        <p class="publication-links"><a href="http://www.roboticsproceedings.org/rss17/p057.pdf" target="_blank" rel="noopener noreferrer">Paper</a></p>
+    </div>
+</article>
+
+<h2 class="publication-year">2020</h2>
+<article class="publication">
+    <img class="publication-media" src="{{ '/assets/img/publication_review/my_gifs/iter.gif' | relative_url }}" alt="Invariant Transform Experience Replay">
+    <div>
+        <p class="publication-title">Invariant Transform Experience Replay: Data Augmentation for Deep Reinforcement Learning</p>
+        <p class="publication-authors">Yijiong Lin, Jiancong Huang, Matthieu Zimmer, Yisheng Guan, Juan Rojas, and Paul Weng</p>
+        <p class="publication-venue">IEEE Robotics and Automation Letters (RA-L), Jul 2020</p>
+        <p class="publication-links"><a href="http://www.juanrojas.net/iter/" target="_blank" rel="noopener noreferrer">Project webpage</a></p>
+    </div>
+</article>

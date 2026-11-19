@@ -39,11 +39,11 @@ Each new member `.md` file must look like this:
 ``` yaml
 ---
 layout: member
-category: staff
+category: director
 title: Researcher Name
 image: researcher.png
 role: Lab Director
-permalink: 'team/researcher-name'
+permalink: 'people/researcher-name'
 social:
     twitter: https://twitter.com/
     linkedin: https://www.linkedin.com/
@@ -95,7 +95,7 @@ Just add a new entry to the list like this:
   "issued": {
     "date-parts": [
       [
-        "2019",
+        "2026",
         2
       ]
     ]

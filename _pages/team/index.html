@@ -1,60 +1,365 @@
 ---
-title: "Team"
+title: "People"
 layout: default
-excerpt: "RT2 Lab: Team members"
+excerpt: "RT2 Lab: People"
 sitemap: false
-permalink: /team/
+permalink: /people/
 ---
+
+<style>
+    .team-member-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 199px), 1fr));
+        gap: 20px;
+    }
+
+    .team-member-grid .team-member-card {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        min-width: 0;
+        margin: 0;
+        align-self: start;
+        width: 220px;
+        max-width: 100%;
+        border: 1px solid #e5e7eb;
+        border-radius: 4px;
+        background: #fff;
+        overflow: hidden;
+    }
+
+    .team-member-grid .team-member-photo {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .team-member-grid .team-member-photo img {
+        width: 100%;
+        max-width: 100%;
+        aspect-ratio: 5 / 6;
+        object-fit: cover;
+    }
+
+    .team-member-grid .team-member-card > div:last-child {
+        width: 100%;
+    }
+
+    .team-member-grid .team-member-card > div:last-child {
+        min-width: 0;
+    }
+
+    .team-member-grid .card-body {
+        padding: 0 15px 15px;
+        overflow-wrap: anywhere;
+    }
+
+    .team-member-grid .card-title {
+        font-size: 25px;
+    }
+
+    .team-member-grid .card-text {
+        font-size: 21px;
+    }
+
+    .team-member-grid .team-member-card--yijiong {
+        grid-column: 1 / -1;
+        width: 100%;
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .team-member-grid .team-member-card--yijiong .team-member-photo {
+        flex: 0 0 240px;
+    }
+
+    .team-member-grid .team-member-card--yijiong .team-member-photo img {
+        width: 240px;
+    }
+
+    .people-carousel {
+        position: relative;
+        width: 100%;
+        margin: 20px auto 32px;
+        max-width: 100%;
+    }
+
+    .people-carousel-media {
+        position: relative;
+        aspect-ratio: 16 / 9;
+        overflow: hidden;
+        background: #fff;
+    }
+
+    .people-carousel-media img {
+        position: absolute;
+        inset: 0;
+        display: block;
+        width: 100%;
+        height: 100% !important;
+        min-height: 100%;
+        max-height: none;
+        object-fit: cover;
+        object-position: center;
+        opacity: 0;
+        transition: opacity 1000ms ease;
+    }
+
+    .people-carousel-media img.is-visible {
+        opacity: 1;
+    }
+
+    .people-carousel-caption {
+        padding: 4px 0 0;
+        color: #586174;
+        font-size: 20px;
+    }
+
+    .people-carousel-controls {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 0 0;
+    }
+
+    .people-carousel-dot {
+        display: block;
+        width: 10px;
+        height: 10px;
+        padding: 0;
+        border: 0;
+        border-radius: 50%;
+        background: #c8cdd3;
+        cursor: pointer;
+    }
+
+    .people-carousel-dot[aria-current="true"] {
+        background: #333;
+    }
+
+    .people-carousel-dot:focus-visible {
+        outline: 2px solid #2266aa;
+        outline-offset: 3px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .people-carousel-media img {
+            transition: none;
+        }
+    }
+
+    @media (max-width: 450px) {
+        .team-member-grid .team-member-card--yijiong {
+            flex-direction: column;
+        }
+
+        .team-member-grid .team-member-card--yijiong .team-member-photo {
+            flex-basis: auto;
+        }
+    }
+
+</style>
 
 <h1>{{page.title}}</h1>
 
-<!-- Staff -->
+<!-- Director -->
 
-<h2><a id="staff"></a>Staff</h2>
-{% assign members = site.posts | where: 'category', 'staff' | sort: 'date' %}
+<h2><a id="director"></a>Director</h2>
+{% assign members = site.posts | where: 'category', 'director' | sort: 'date' %}
+<div class="team-member-grid">
 {% for member in members %}
-<div class="card team-member-card">
-    <div class="row mt-3">
-        <div class="col-md-2">
-            <a href={{member.url}}>
+<div class="card team-member-card{% if member.permalink == 'team/yijiong-lin' %} team-member-card--yijiong{% endif %}">
+        <div class="team-member-photo">
+            <a href="{% if member.permalink == 'team/yijiong-lin' %}https://yijionglin.github.io/{% else %}{{ member.url | relative_url }}{% endif %}">
                 <img src="{{ site.url }}{{ site.baseurl }}/images/team/{{ member.image }}"
-                    class="card-img img-responsive img-thumbnail"
-                    style="filter: grayscale(100%); max-width: 100px;"/>
+                    class="card-img img-responsive img-thumbnail"/>
             </a>
         </div>
 
-        <div class="col-md-10">
+        <div>
             <div class="card-body">
             <h4 class="card-title">{{ member.title }}</h4>
             <p class="card-text">{{ member.role }}</p>
             </div>
         </div>
-    </div>
 </div>
 {% endfor %}
+</div>
 
-<!-- Students -->
+<!-- Research Assistants -->
 
-<h2><a id="student"></a>Students</h2>
-{% assign members = site.posts | where: 'category', 'student' | sort: 'date' %}
+<h2><a id="research-assistant"></a>Research Assistants</h2>
+{% assign members = site.posts | where: 'category', 'research-assistant' | sort: 'date' %}
+<div class="team-member-grid">
 {% for member in members %}
 <div class="card team-member-card">
-    <div class="row mt-3">
-        <div class="col-md-2">
-            <a href={{member.url}}>
+        <div class="team-member-photo">
+            <a href="{{ member.url | relative_url }}">
                 <img src="{{ site.url }}{{ site.baseurl }}/images/team/{{ member.image }}"
-                    class="card-img img-responsive img-thumbnail"
-                    style="filter: grayscale(100%); max-width: 100px;"/>
+                    class="card-img img-responsive img-thumbnail"/>
             </a>
         </div>
 
-        <div class="col-md-10">
+        <div>
             <div class="card-body">
             <h4 class="card-title">{{ member.title }}</h4>
             <p class="card-text">{{ member.role }}</p>
             </div>
         </div>
-    </div>
+</div>
+{% endfor %}
+</div>
+
+<!-- Graduate Students -->
+
+<h2><a id="graduate"></a>Graduate Students</h2>
+{% assign members = site.posts | where: 'category', 'graduate' | sort: 'sort_order' %}
+<div class="team-member-grid">
+{% for member in members %}
+<div class="card team-member-card">
+        <div class="team-member-photo">
+            <a href="{{ member.url | relative_url }}">
+                <img src="{{ site.url }}{{ site.baseurl }}/images/team/{{ member.image }}"
+                    class="card-img img-responsive img-thumbnail"/>
+            </a>
+        </div>
+
+        <div>
+            <div class="card-body">
+            <h4 class="card-title">{{ member.title }}</h4>
+            <p class="card-text">{{ member.role }}</p>
+            </div>
+        </div>
 </div>
 
 {% endfor %}
+</div>
+
+<!-- Undergraduate Students -->
+
+<h2><a id="undergraduate"></a>Undergraduate Students</h2>
+{% assign members = site.posts | where: 'category', 'undergraduate' | sort: 'sort_order' %}
+<div class="team-member-grid">
+{% for member in members %}
+<div class="card team-member-card">
+        <div class="team-member-photo">
+            <a href="{{ member.url | relative_url }}">
+                <img src="{{ site.url }}{{ site.baseurl }}/images/team/{{ member.image }}"
+                    class="card-img img-responsive img-thumbnail"/>
+            </a>
+        </div>
+
+        <div>
+            <div class="card-body">
+            <h4 class="card-title">{{ member.title }}</h4>
+            <p class="card-text">{{ member.role }}</p>
+            </div>
+        </div>
+</div>
+{% endfor %}
+</div>
+
+<!-- Lab Moment -->
+
+<h2><a id="lab-moment"></a>Lab Moment</h2>
+
+<div class="people-carousel" id="people-carousel"
+     role="region" aria-roledescription="carousel"
+     aria-label="Lab moments" markdown="0">
+    <div class="people-carousel-media">
+        <img id="people-carousel-image"
+             class="is-visible"
+             src="{{ '/images/team/rolling_images/people/3_rongxi_collecting_tactile_data.jpg' | relative_url }}"
+             alt="Lab moment">
+        <img id="people-carousel-image-next" alt="" aria-hidden="true">
+    </div>
+
+    <div class="people-carousel-caption" id="people-carousel-caption">
+        Collecting tactile data
+    </div>
+    <div class="people-carousel-controls" id="people-carousel-dots"
+         aria-label="Lab moment slides"></div>
+</div>
+
+<script>
+(function () {
+  const images = [
+    "{{ '/images/team/rolling_images/people/3_rongxi_collecting_tactile_data.jpg' | relative_url }}",
+    "{{ '/images/team/rolling_images/people/4_testing_topstar.jpg' | relative_url }}",
+    "{{ '/images/team/rolling_images/people/5_work_together.png' | relative_url }}",
+    "{{ '/images/team/rolling_images/people/6_lab_view.jpg' | relative_url }}",
+    "{{ '/images/team/rolling_images/people/7_lab_view.jpg' | relative_url }}"
+  ];
+  const image = document.getElementById("people-carousel-image");
+  const nextImage = document.getElementById("people-carousel-image-next");
+  const dots = document.getElementById("people-carousel-dots");
+  const caption = document.getElementById("people-carousel-caption");
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  const captions = [
+    "Collecting tactile data",
+    "Testing Topstar",
+    "Working together",
+    "OpenDIM Lab view 1",
+    "OpenDIM Lab view 2"
+  ];
+  let index = 0;
+  let activeImage = image;
+  let timer;
+  let paused = reducedMotion.matches;
+
+  function schedule() {
+    clearTimeout(timer);
+    if (!paused && !document.hidden) {
+      timer = setTimeout(function () {
+        show(index + 1);
+      }, 4000);
+    }
+  }
+
+  function show(next) {
+    clearTimeout(timer);
+    index = (next + images.length) % images.length;
+    const incoming = activeImage === image ? nextImage : image;
+    const outgoing = activeImage;
+
+    Array.from(dots.children).forEach(function (dot, dotIndex) {
+      dot.setAttribute("aria-current", String(dotIndex === index));
+    });
+    caption.textContent = captions[index];
+
+    incoming.onload = function () {
+      incoming.classList.add("is-visible");
+      incoming.removeAttribute("aria-hidden");
+      outgoing.classList.remove("is-visible");
+      outgoing.setAttribute("aria-hidden", "true");
+      activeImage = incoming;
+      schedule();
+    };
+    incoming.onerror = function () {
+      console.error("Unable to load lab moment image: " + images[index]);
+      schedule();
+    };
+    incoming.alt = "Lab moment " + (index + 1);
+    incoming.src = images[index];
+    if (incoming.complete && incoming.naturalWidth > 0) {
+      incoming.onload();
+    }
+  }
+
+  images.forEach(function (unused, imageIndex) {
+    const dot = document.createElement("button");
+    dot.type = "button";
+    dot.className = "people-carousel-dot";
+    dot.setAttribute("aria-label", "Show lab moment " + (imageIndex + 1));
+    dot.setAttribute("aria-current", String(imageIndex === 0));
+    dot.addEventListener("click", function () {
+      show(imageIndex);
+    });
+    dots.appendChild(dot);
+  });
+
+  schedule();
+}());
+</script>
