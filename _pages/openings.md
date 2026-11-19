@@ -33,5 +33,5 @@ robotics-related fields are encouraged to apply. In-person collaboration is
 preferred.
 
 Please send a CV to
-<a href="mailto:y.lin@bit.edu.cn">y.lin at bit.edu.cn</a>. Recruitment is
+y.lin at bit.edu.cn. Recruitment is
 open on a rolling basis.

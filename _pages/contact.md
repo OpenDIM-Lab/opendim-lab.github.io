@@ -8,7 +8,7 @@ permalink: /contact/
 
 # Contact
 
-<p><strong>Email:</strong> <a href="mailto:y.lin@bit.edu.cn">y.lin@bit.edu.cn</a></p>
+<p><strong>Email:</strong> y.lin at bit.edu.cn</p>
 
 <p><strong>Institution:</strong> Beijing Institute of Technology</p>
 
