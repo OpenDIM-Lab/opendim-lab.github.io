@@ -13,6 +13,10 @@ world. Our research combines tactile sensing, multimodal perception, robot
 learning, and dexterous manipulation to develop machines that can interact
 with objects reliably and precisely.
 
+<img src="{{ '/images/research-directions.png' | relative_url }}"
+     alt="Sense: tactile sensing and perception; Learn: simulation and robot learning; Act: dexterous robotic manipulation."
+     style="display: block; width: 100%; height: auto; margin: 24px auto;">
+
 We focus on three closely connected research directions:
 
 ## Tactile sensing and perception

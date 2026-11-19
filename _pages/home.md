@@ -20,6 +20,7 @@ permalink: /
     learning, and embodied intelligence.
   </p>
   <div class="home-actions">
+    <a href="{{ '/news/' | relative_url }}">News</a>
     <a href="{{ '/people/' | relative_url }}">Meet the Team</a>
     <a href="{{ '/research/' | relative_url }}">Explore Our Research</a>
     <a href="{{ '/join-us/' | relative_url }}">Join Us</a>
