@@ -13,7 +13,7 @@ permalink: /
     alt="OpenDIM Lab logo"
     style="display: block; width: 280px; max-width: 100%; height: auto; margin: 0 auto;">
 </div>
-<div class="home-intro">
+<div class="home-intro" markdown="0">
   <p>
     OpenDIM Lab is a robotics research laboratory at Beijing Institute of
     Technology, focusing on tactile sensing, dexterous manipulation, robot
