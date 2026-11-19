@@ -5,7 +5,7 @@ description: >-
   manipulation, and embodied intelligence, developing robots
   that learn to interact with the physical world.
 baseurl: ""
-url: "https://opendim-lab.github.io"
+url: "https://www.opendimlab.com"
 
 include:
   - .htaccess
@@ -32,4 +32,3 @@ kramdown:
   smart_quotes: lsquo,rsquo,ldquo,rdquo
   enable_coderay: false
   parse_block_html: true # default for kramdown is false. This will enable using Markdown links
-
