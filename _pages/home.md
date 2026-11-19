@@ -13,7 +13,49 @@ permalink: /
     alt="OpenDIM Lab logo"
     style="display: block; width: 280px; max-width: 100%; height: auto; margin: 0 auto;">
 </div>
+<div class="home-intro">
+  <p>
+    OpenDIM Lab is a robotics research laboratory at Beijing Institute of
+    Technology, focusing on tactile sensing, dexterous manipulation, robot
+    learning, and embodied intelligence.
+  </p>
+  <div class="home-actions">
+    <a href="{{ '/people/' | relative_url }}">Meet the Team</a>
+    <a href="{{ '/research/' | relative_url }}">Explore Our Research</a>
+    <a href="{{ '/join-us/' | relative_url }}">Join Us</a>
+  </div>
+</div>
 <style>
+.home-intro {
+  max-width: 780px;
+  margin: 0 auto 28px;
+  text-align: center;
+}
+.home-intro p {
+  margin: 0 auto 18px;
+  line-height: 1.6;
+}
+.home-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+.home-actions a {
+  display: inline-block;
+  padding: 8px 14px;
+  border: 1px solid #2266aa;
+  border-radius: 4px;
+  background: #2266aa;
+  color: #fff;
+  text-decoration: none;
+}
+.home-actions a:hover,
+.home-actions a:focus {
+  background: #174a7c;
+  color: #fff;
+  text-decoration: none;
+}
 .od-carousel {
   position: relative;
   margin: 20px 0 32px;

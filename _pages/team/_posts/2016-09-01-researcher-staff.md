@@ -4,7 +4,7 @@ published: true
 category: director
 title: Yijiong Lin
 image: yijiong_lin.jpg
-role: Ph.D.<br>Principal Investigator<br>Assistant Professor
+role: Assistant Professor, Beijing Institute of Technology<br>Director, OpenDIM Lab
 permalink: 'team/yijiong-lin'
 ---
 
