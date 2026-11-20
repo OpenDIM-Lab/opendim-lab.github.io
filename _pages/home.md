@@ -77,7 +77,8 @@ permalink: /
   overflow: hidden;
   background: #f5f6f8;
 }
-.od-media img {
+.od-media img,
+.od-media video {
   position: absolute;
   inset: 0;
   display: block;
@@ -170,11 +171,13 @@ permalink: /
      href="https://yijionglin.github.io/tactilelab/"
      target="_blank" rel="noopener noreferrer">
     <div class="od-media">
-      <img id="od-project-image"
-           class="is-visible"
-           src="{{ '/images/projects/tactilelab_1.gif' | relative_url }}"
-           alt="TactileLab project demonstration">
-      <img id="od-project-image-next" alt="" aria-hidden="true" loading="lazy">
+      <video id="od-project-video"
+             class="is-visible"
+             autoplay loop muted playsinline preload="auto"
+             src="{{ '/images/projects/tactilelab_1.mp4' | relative_url }}"
+             aria-label="TactileLab project demonstration"></video>
+      <video id="od-project-video-next" loop muted playsinline
+             preload="none" aria-hidden="true"></video>
     </div>
     <div class="od-caption">
       <h3 id="od-project-title">TactileLab</h3>
@@ -203,46 +206,46 @@ permalink: /
   const projects = [
     {
       title: "TactileLab: Efficient Multimodal Tactile Simulation for Shear-Sensitive Dexterous Sim2Real Robotic Manipulation",
-      image: "{{ '/images/projects/tactilelab_1.gif' | relative_url }}",
+      video: "{{ '/images/projects/tactilelab_1.mp4' | relative_url }}",
       url: "https://yijionglin.github.io/tactilelab/",
     },
     {
       title: "TactileLab Demo: Real-World In-Hand Manipulation",
-      image: "{{ '/images/projects/tactilelab_2.gif' | relative_url }}",
+      video: "{{ '/images/projects/tactilelab_2.mp4' | relative_url }}",
       url: "https://yijionglin.github.io/tactilelab/",
     },
     {
       title: "TactileLab Demo: Tactile Manipulation",
-      image: "{{ '/images/projects/tactilelab_3.gif' | relative_url }}",
+      video: "{{ '/images/projects/tactilelab_3.mp4' | relative_url }}",
       url: "https://yijionglin.github.io/tactilelab/",
     },
 
     {
       title: "NeuralTouch: Neural Descriptors for Precise Sim-to-Real Tactile Robot Control",
-      image: "{{ '/images/projects/neuraltouch.gif' | relative_url }}",
+      video: "{{ '/images/projects/neuraltouch.mp4' | relative_url }}",
       url: "https://yijionglin.github.io/neuraltouch/",
     },
     {
       title: "Bi-Touch: Bimanual Tactile Manipulation With Sim-to-Real Deep Reinforcement Learning",
-      image: "{{ '/images/projects/bitouch.gif' | relative_url }}",
+      video: "{{ '/images/projects/bitouch.mp4' | relative_url }}",
       url: "https://sites.google.com/view/bi-touch/",
     },
     {
       title: "SimShear: Sim-to-Real Shear-based Tactile Servoing",
-      image: "{{ '/images/projects/simshear.gif' | relative_url }}",
+      video: "{{ '/images/projects/simshear.mp4' | relative_url }}",
       url: "https://yijionglin.github.io/simshear/",
     },
     {
       title: "AnyRotate: Gravity-Invariant In-Hand Object Rotation with Sim-to-Real Touch",
-      image: "{{ '/images/projects/anyrotate.gif' | relative_url }}",
+      video: "{{ '/images/projects/anyrotate.mp4' | relative_url }}",
       url: "https://maxyang27896.github.io/anyrotate/",
     }
   ];
 
   const root = document.getElementById("od-carousel");
-  const img = document.getElementById("od-project-image");
-  const nextImg = document.getElementById("od-project-image-next");
-  const images = [img, nextImg];
+  const video = document.getElementById("od-project-video");
+  const nextVideo = document.getElementById("od-project-video-next");
+  const videos = [video, nextVideo];
   const link = document.getElementById("od-project-link");
   const title = document.getElementById("od-project-title");
   const description = document.getElementById("od-project-description");
@@ -261,7 +264,7 @@ permalink: /
   function schedule() {
     clearTimeout(timer);
     if (!paused && !focused && !document.hidden &&
-        !transitioning && images[activeImageIndex].complete) {
+        !transitioning && videos[activeImageIndex].readyState >= 2) {
       timer = setTimeout(function () { show(index + 1); }, 3000);
     }
   }
@@ -280,23 +283,25 @@ permalink: /
       dot.setAttribute("aria-current", String(i === index));
     });
 
-    const outgoing = images[activeImageIndex];
-    if (outgoing.getAttribute("src") === project.image) {
+    const outgoing = videos[activeImageIndex];
+    if (outgoing.getAttribute("src") === project.video) {
       transitioning = false;
       schedule();
       return;
     }
 
     const incomingIndex = 1 - activeImageIndex;
-    const incoming = images[incomingIndex];
+    const incoming = videos[incomingIndex];
     const token = ++transitionToken;
     let transitionStarted = false;
     transitioning = true;
-    incoming.alt = project.title + " project demonstration";
+    incoming.setAttribute("aria-label", project.title + " project demonstration");
 
     function beginTransition() {
       if (token !== transitionToken || transitionStarted) return;
       transitionStarted = true;
+      incoming.play().catch(function () {});
+      outgoing.pause();
       incoming.classList.add("is-visible");
       incoming.removeAttribute("aria-hidden");
       outgoing.classList.remove("is-visible");
@@ -311,12 +316,13 @@ permalink: /
     incoming.onload = beginTransition;
     incoming.onerror = function () {
       if (token !== transitionToken) return;
-      console.error("Unable to load project image: " + project.image);
+      console.error("Unable to load project video: " + project.video);
       transitioning = false;
       schedule();
     };
-    incoming.src = project.image;
-    if (incoming.complete && incoming.naturalWidth > 0) beginTransition();
+    incoming.src = project.video;
+    incoming.load();
+    if (incoming.readyState >= 2) beginTransition();
 
     schedule();
   }
@@ -378,8 +384,8 @@ permalink: /
     }
   });
 
-  img.addEventListener("load", schedule);
-  img.addEventListener("error", schedule);
+  video.addEventListener("loadeddata", schedule);
+  video.addEventListener("error", schedule);
   document.addEventListener("visibilitychange", schedule);
 
   updatePause();
