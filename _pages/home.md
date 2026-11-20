@@ -89,11 +89,13 @@ permalink: /
   opacity: 0;
   transition: opacity 1000ms ease;
 }
-.od-media img.is-visible {
+.od-media img.is-visible,
+.od-media video.is-visible {
   opacity: 1;
 }
 @media (prefers-reduced-motion: reduce) {
-  .od-media img { transition: none; }
+  .od-media img,
+  .od-media video { transition: none; }
 }
 .od-caption {
   padding: 18px 55px 12px;
@@ -313,7 +315,7 @@ permalink: /
       }, 500);
     }
 
-    incoming.onload = beginTransition;
+    incoming.onloadeddata = beginTransition;
     incoming.onerror = function () {
       if (token !== transitionToken) return;
       console.error("Unable to load project video: " + project.video);
