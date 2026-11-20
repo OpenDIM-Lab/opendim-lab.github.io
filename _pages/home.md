@@ -206,6 +206,16 @@ permalink: /
       image: "{{ '/images/projects/posters/tactilelab.webp' | relative_url }}",
       url: "https://yijionglin.github.io/tactilelab/",
     },
+    {
+      title: "TactileLab Demo: Real-World In-Hand Manipulation",
+      image: "{{ '/images/projects/posters/tactilelab_2.webp' | relative_url }}",
+      url: "https://yijionglin.github.io/tactilelab/",
+    },
+    {
+      title: "TactileLab Demo: Tactile Manipulation",
+      image: "{{ '/images/projects/posters/tactilelab_3.webp' | relative_url }}",
+      url: "https://yijionglin.github.io/tactilelab/",
+    },
 
     {
       title: "NeuralTouch: Neural Descriptors for Precise Sim-to-Real Tactile Robot Control",
