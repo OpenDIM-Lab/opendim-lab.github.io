@@ -172,7 +172,7 @@ permalink: /
     <div class="od-media">
       <img id="od-project-image"
            class="is-visible"
-           src="{{ '/images/projects/posters/tactilelab.webp' | relative_url }}"
+           src="{{ '/images/projects/tactilelab_1.gif' | relative_url }}"
            alt="TactileLab project demonstration">
       <img id="od-project-image-next" alt="" aria-hidden="true" loading="lazy">
     </div>
@@ -203,38 +203,38 @@ permalink: /
   const projects = [
     {
       title: "TactileLab: Efficient Multimodal Tactile Simulation for Shear-Sensitive Dexterous Sim2Real Robotic Manipulation",
-      image: "{{ '/images/projects/posters/tactilelab.webp' | relative_url }}",
+      image: "{{ '/images/projects/tactilelab_1.gif' | relative_url }}",
       url: "https://yijionglin.github.io/tactilelab/",
     },
     {
       title: "TactileLab Demo: Real-World In-Hand Manipulation",
-      image: "{{ '/images/projects/posters/tactilelab_2.webp' | relative_url }}",
+      image: "{{ '/images/projects/tactilelab_2.gif' | relative_url }}",
       url: "https://yijionglin.github.io/tactilelab/",
     },
     {
       title: "TactileLab Demo: Tactile Manipulation",
-      image: "{{ '/images/projects/posters/tactilelab_3.webp' | relative_url }}",
+      image: "{{ '/images/projects/tactilelab_3.gif' | relative_url }}",
       url: "https://yijionglin.github.io/tactilelab/",
     },
 
     {
       title: "NeuralTouch: Neural Descriptors for Precise Sim-to-Real Tactile Robot Control",
-      image: "{{ '/images/projects/posters/neuraltouch.webp' | relative_url }}",
+      image: "{{ '/images/projects/neuraltouch.gif' | relative_url }}",
       url: "https://yijionglin.github.io/neuraltouch/",
     },
     {
       title: "Bi-Touch: Bimanual Tactile Manipulation With Sim-to-Real Deep Reinforcement Learning",
-      image: "{{ '/images/projects/posters/bitouch.webp' | relative_url }}",
+      image: "{{ '/images/projects/bitouch.gif' | relative_url }}",
       url: "https://sites.google.com/view/bi-touch/",
     },
     {
       title: "SimShear: Sim-to-Real Shear-based Tactile Servoing",
-      image: "{{ '/images/projects/posters/simshear.webp' | relative_url }}",
+      image: "{{ '/images/projects/simshear.gif' | relative_url }}",
       url: "https://yijionglin.github.io/simshear/",
     },
     {
       title: "AnyRotate: Gravity-Invariant In-Hand Object Rotation with Sim-to-Real Touch",
-      image: "{{ '/images/projects/posters/anyrotate.webp' | relative_url }}",
+      image: "{{ '/images/projects/anyrotate.gif' | relative_url }}",
       url: "https://maxyang27896.github.io/anyrotate/",
     }
   ];
