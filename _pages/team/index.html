@@ -172,7 +172,7 @@ permalink: /people/
 <div class="card team-member-card{% if member.permalink == 'team/yijiong-lin' %} team-member-card--yijiong{% endif %}">
         <div class="team-member-photo">
             <a href="{% if member.permalink == 'team/yijiong-lin' %}https://yijionglin.github.io/{% else %}{{ member.url | relative_url }}{% endif %}">
-                <img src="{{ site.url }}{{ site.baseurl }}/images/team/{{ member.image }}"
+                <img loading="lazy" decoding="async" src="{{ site.url }}{{ site.baseurl }}/images/team/{{ member.image }}"
                     class="card-img img-responsive img-thumbnail"/>
             </a>
         </div>
@@ -196,7 +196,7 @@ permalink: /people/
 <div class="card team-member-card">
         <div class="team-member-photo">
             <a href="{{ member.url | relative_url }}">
-                <img src="{{ site.url }}{{ site.baseurl }}/images/team/{{ member.image }}"
+                <img loading="lazy" decoding="async" src="{{ site.url }}{{ site.baseurl }}/images/team/{{ member.image }}"
                     class="card-img img-responsive img-thumbnail"/>
             </a>
         </div>
@@ -220,7 +220,7 @@ permalink: /people/
 <div class="card team-member-card">
         <div class="team-member-photo">
             <a href="{{ member.url | relative_url }}">
-                <img src="{{ site.url }}{{ site.baseurl }}/images/team/{{ member.image }}"
+                <img loading="lazy" decoding="async" src="{{ site.url }}{{ site.baseurl }}/images/team/{{ member.image }}"
                     class="card-img img-responsive img-thumbnail"/>
             </a>
         </div>
@@ -245,7 +245,7 @@ permalink: /people/
 <div class="card team-member-card">
         <div class="team-member-photo">
             <a href="{{ member.url | relative_url }}">
-                <img src="{{ site.url }}{{ site.baseurl }}/images/team/{{ member.image }}"
+                <img loading="lazy" decoding="async" src="{{ site.url }}{{ site.baseurl }}/images/team/{{ member.image }}"
                     class="card-img img-responsive img-thumbnail"/>
             </a>
         </div>
@@ -270,13 +270,13 @@ permalink: /people/
     <div class="people-carousel-media">
         <img id="people-carousel-image"
              class="is-visible"
-             src="{{ '/images/team/rolling_images/people/3_rongxi_collecting_tactile_data.jpg' | relative_url }}"
+             src="{{ '/images/team/rolling_images/people/1_Sharpa Hand_working_with_SynaPath.png' | relative_url }}"
              alt="Lab moment">
         <img id="people-carousel-image-next" alt="" aria-hidden="true">
     </div>
 
     <div class="people-carousel-caption" id="people-carousel-caption">
-        Collecting tactile data
+        Sharpa Hand working with SynaPath
     </div>
     <div class="people-carousel-controls" id="people-carousel-dots"
          aria-label="Lab moment slides"></div>
@@ -285,6 +285,8 @@ permalink: /people/
 <script>
 (function () {
   const images = [
+    "{{ '/images/team/rolling_images/people/1_Sharpa Hand_working_with_SynaPath.png' | relative_url }}",
+    "{{ '/images/team/rolling_images/people/2_Dual-Arm Robot_working_with_SynaPath.png' | relative_url }}",
     "{{ '/images/team/rolling_images/people/3_rongxi_collecting_tactile_data_small.jpg' | relative_url }}",
     "{{ '/images/team/rolling_images/people/4_testing_topstar.jpg' | relative_url }}",
     "{{ '/images/team/rolling_images/people/5_work_together_small.png' | relative_url }}",
@@ -298,6 +300,8 @@ permalink: /people/
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
   const captions = [
+    "Sharpa Hand working with SynaPath",
+    "Dual-Arm Robot working with SynaPath",
     "Collecting tactile data",
     "Testing Topstar",
     "Working together",
